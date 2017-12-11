@@ -1,3 +1,7 @@
+var originalHeader = document.getElementById("h").innerHTML;
+var item = 8;
+var fibnum = 0;
+
 var fibonacci = function(n) {
     if (n==0) {
 	return 0;
@@ -7,22 +11,6 @@ var fibonacci = function(n) {
     }
     return fibonacci(n-1) + fibonacci(n-2);
 };
-
-var fibnum = 0;
-var addFib = function(){
-    var fibItem = document.createElement("li");
-    fibItem.innerHTML = fibonacci(fibnum);
-    fibnum++;
-    list2.appendChild(fibItem);
-};
-var list2 = document.createElement("ol");
-var button = document.createElement("button");
-button.innerHTML = "The other button";
-button.addEventListener("click", addFib);
-document.body.append(list2);
-document.body.append(button);
-var item = 8;
-var originalHeader = document.getElementById("h").innerHTML;
 
 var unhover = function(){
     document.getElementById("h").innerHTML = originalHeader;
@@ -47,8 +35,24 @@ var addItem = function(){
     list.appendChild(newItem);
 };
 
+var addFib = function(){
+    var fibItem = document.createElement("li");
+    fibItem.innerHTML = fibonacci(fibnum);
+    list2.appendChild(fibItem);
+    fibnum++;
+};
+
+
 var button = document.getElementById("b");
 button.addEventListener("click", addItem);
+
+var list2 = document.createElement("ol");
+var button2 = document.createElement("button");
+button2.innerHTML = "The other button";
+button2.addEventListener("click", addFib);
+document.body.append(list2);
+document.body.append(button2);
+
 
 var items = document.getElementsByTagName("li");
 for(var i = 0; i < item; i++){
