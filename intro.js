@@ -1,3 +1,26 @@
+var fibonacci = function(n) {
+    if (n==0) {
+	return 0;
+    }
+    else if (n == 1) {
+	return 1;
+    }
+    return fibonacci(n-1) + fibonacci(n-2);
+};
+
+var fibnum = 0;
+var addFib = function(){
+    var fibItem = document.createElement("li");
+    fibItem.innerHTML = fibonacci(fibnum);
+    fibnum++;
+    list2.appendChild(fibItem);
+};
+var list2 = document.createElement("ol");
+var button = document.createElement("button");
+button.innerHTML = "The other button";
+button.addEventListener("click", addFib);
+document.body.append(list2);
+document.body.append(button);
 var item = 8;
 var originalHeader = document.getElementById("h").innerHTML;
 
@@ -11,7 +34,7 @@ var hover = function(){
 
 var remove = function(){
     this.remove();
-}
+};
 
 var addItem = function(){
     var list = document.getElementById("thelist");
